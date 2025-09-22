@@ -2,6 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent layout shifts */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent font loading layout shifts */
+html {
+  font-display: swap;
+}
+
+/* Ensure consistent image sizing */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent layout shifts from dynamic content */
+.carousel {
+  min-height: 400px;
+}
+
+.carousel__slide {
+  min-height: 300px;
+}
+
+.testimonial {
+  min-height: 250px;
+}
+
+.feature-card {
+  min-height: 200px;
+}
+
+/* Ensure buttons maintain consistent size */
+button,
+.button,
+.btn {
+  min-height: 44px; /* Touch target size */
+}
+
+/* Prevent layout shifts in forms */
+input,
+textarea,
+select {
+  min-height: 44px;
+}
+
+/* Ensure carousel maintains aspect ratio */
+.carousel__container {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Prevent layout shifts during image loading */
+.carousel__image {
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.carousel__image[loading="lazy"] {
+  opacity: 0;
+}
+
+.carousel__image[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Optimize animations to prevent layout shifts */
+.animate-fade-in-up {
+  will-change: opacity, transform;
+}
+
+.animate-fade-in-up.animate {
+  will-change: auto;
+}
+
 :root {
   --font-sans: "Inter", system-ui, sans-serif;
 
@@ -30,16 +107,16 @@
 
 /* Dark mode variables */
 html.dark {
-  --color-background: #1a1a1a;
+  --color-background: #0f0f0f;
   --color-foreground: #ffffff;
-  --color-muted: #404040;
-  --color-muted-foreground: #a3a3a3;
-  --color-popover: #2a2a2a;
+  --color-muted: #2a2a2a;
+  --color-muted-foreground: #d1d5db;
+  --color-popover: #1a1a1a;
   --color-popover-foreground: #ffffff;
-  --color-card: #2a2a2a;
+  --color-card: #1a1a1a;
   --color-card-foreground: #ffffff;
-  --color-border: #404040;
-  --color-input: #404040;
+  --color-border: #374151;
+  --color-input: #374151;
   --color-primary: #ef4444;
   --color-primary-foreground: #ffffff;
   --color-secondary: #451a1a;
@@ -52,7 +129,7 @@ html.dark {
 }
 
 html.dark body {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1f1f1f 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #141414 100%);
 }
 
 @layer base {
@@ -429,9 +506,9 @@ body {
 }
 
 html.dark .corporate-card {
-  background: rgba(42, 42, 42, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Tech Status Indicators */

@@ -1,0 +1,37 @@
+/* Critical CSS - Above the fold content only */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Preload critical resources */
+@media (min-width: 768px) {
+  .lg\\:block {
+    display: block !important;
+  }
+}
+
+/* Optimize scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
