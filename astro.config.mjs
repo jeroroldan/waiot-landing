@@ -8,5 +8,16 @@ export default defineConfig({
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto'
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'entry.[hash].mjs',
+          chunkFileNames: 'chunks/chunk.[hash].mjs',
+          assetFileNames: 'assets/asset.[hash][extname]'
+        }
+      }
+    }
   }
 });
